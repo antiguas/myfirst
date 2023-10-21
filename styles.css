@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background-image: url('https://github.com/antiguas/myfirst/blob/main/HomepageBackground.png'); /* URL to your background image */
+    background-image: url('HomepageBackground.png'); /* URL to your background image */
     background-position: top; /* Center the background image */
     background-repeat: no-repeat; /* Do not repeat the background image */
 }
