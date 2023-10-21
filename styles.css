@@ -1,0 +1,655 @@
+body {
+    text-align: center;
+    background-image: url('file:///C:/Users/Sharmaine/Desktop/BIA/3.23F_Sec31/5.Fri_Web%20&%20Mobile%20Syst%20Programming/Assignment/Assign2/Final/Pics/HomepageBackground.png'); /* URL to your background image */
+    background-position: top; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+.language-selection {
+    position: absolute;
+}
+
+.language-selection select {
+    padding: 0;
+    font-size: 8px;
+}
+
+.title-container {    
+    padding: 45px;
+    background-color: rgba(255, 255, 255, 0.8); 
+}
+
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif; /* Font family of the title */
+    color: #0861c1; /* Font color of the title (hex color code) */
+}
+
+p {
+    font-family: system-ui; /* Font family of the title */
+    font-style: italic;
+    color: #616474cd; /* Font color of the title (hex color code) */
+    /* background-color: rgba(255, 255, 255, 0.8);  */
+}
+
+.breadcrumb {
+    background-color: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: absolute; /* Use "fixed" for a fixed position or "absolute" for a specific position */
+    z-index: 1000; /* Set a high z-index to ensure the breadcrumb appears above other elements */
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 5px; /* Adjust the left and right margins between breadcrumb items */
+}
+
+.current-page {
+    color: #007bffcd;
+    font-weight: Bold;
+    text-decoration: none;
+}
+
+.footer {
+    color: #fff; /* Set text color for the footer */
+    padding: 20px; /* Set padding inside the footer to adjust its size */
+    text-align: center; /* Align text to the center within the footer */
+    /* Additional styles as needed */
+}
+
+
+
+
+
+
+/* Media Query for Mobile Devices */
+@media (min-width: 320px) and (max-width: 400px) {
+
+    body {
+        background-size: cover; /* Cover the entire viewport with the background image */
+      
+    }
+    
+    .logo {
+        position: absolute;
+        top: 15px; /* Add space on the top of the image by adjusting this value */
+        left: 15px; /* Add space on the left side of the image by adjusting this value */
+        max-width: 100%; /* Set the width of the image */
+        height: auto; /* Automatically adjust the height to maintain aspect ratio */
+    }
+    
+    .language-selection {
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        font-size: 10px; /* Font size of the title */
+    }
+
+    h1 {
+        margin-top: 8%;     
+        font-size: 50px; /* Font size of the title */
+    }
+
+    p {
+        font-size: 13px; /* Font size of the paragraph */
+        padding: 2px 2px;
+    }
+
+    .breadcrumb {
+        background-color: none;
+        padding: 10px 20px;
+        font-size: 13px;
+        top: 280px; /* Adjust the top position */
+        left: 10px; /* Adjust the left position */
+        width: 85%; /* Make the breadcrumb span the entire width */
+        z-index: 1000; /* Set a high z-index to ensure the breadcrumb appears above other elements */
+        text-align: left
+    }
+
+    .navigation-icons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+        gap: 10px; /* Adjust the gap between icon sets */
+        justify-content: start;
+        margin-top: 10%; 
+
+    }
+
+    .icon {
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Add smooth transition effect */
+    }
+
+    .icon-container {
+        position: relative;  /*relative */
+        cursor: pointer;
+        padding: 10px;
+        margin: 10px;
+        
+    }
+
+    .icon-options {
+    position: static;
+    bottom: 5px; /* Hide options initially */
+    left: 10%;
+    transform: translateX(120px, 50%);
+    padding: 5% 0;
+    border-radius: 5px;
+    display: grid;
+    gap: 5%; /* Adjust the gap between options */
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    }
+
+    .icon-container:hover {
+        background-color: none; /* Change icon background color on hover */
+    }
+
+    .icon-container:hover .icon-options {
+        bottom: 10px; /* gap. Show options on hover */
+        opacity: 1;
+    }
+
+    .icon-options a {
+        background-color: #eff5f9fd; /* Default background color of options */
+        color: rgba(81, 83, 88, 0.973);
+        padding: 2px 3px;
+        border-radius: 3px;
+        text-decoration: none;
+        font-family: 'Trebuchet MS';
+        transition: background-color 0.3s ease;
+        font-size: 9px; /* Adjust the font size here */
+    }
+
+    .icon-options a:hover {
+        background-color: #b6d5f5; /* Change background color of options on hover */
+    }
+
+    .sub-options {
+        display: grid;  /*grid or none  */
+        position: absolute;
+        top: 74%;
+        left: 13%;
+        font-size: 8px; /* Adjust the font size here */
+ 
+    }
+
+    .icon-container:hover .sub-options {     /*this is IT!!!!!!!!!!!!!!!  */
+        display: block;
+    }
+    
+    .icon-options ul {
+    list-style-type: none; /* Remove bullet points */
+    right: 0;
+    padding: 100; /* Remove default padding */
+    margin: 3% 0; /* Remove default margin
+    /* Adjust the length of the options here */
+    .icon-options a {
+    min-width: 75%; /* Set a minimum width for the options */
+    }
+    }
+
+    .icon img {   
+    max-width: 110px;
+    height: auto;
+    }
+
+    footer{
+        font-size: x-small;
+    }
+}
+
+
+
+/* Media Query for Mobile Devices */
+@media (min-width: 400px) and (max-width: 767px) {
+
+    body {
+        background-size: cover; /* Cover the entire viewport with the background image */
+      
+    }
+    
+    .logo {
+        position: absolute;
+        top: 15px; /* Add space on the top of the image by adjusting this value */
+        left: 15px; /* Add space on the left side of the image by adjusting this value */
+        max-width: 100%; /* Set the width of the image */
+        height: auto; /* Automatically adjust the height to maintain aspect ratio */
+    }
+    
+    .language-selection {
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        font-size: 15px; /* Font size of the title */
+    }
+
+    .language-selection select {
+        padding: 0;
+        font-size: 13px;
+    }
+
+    h1 {
+        margin-top: 1%;     
+        font-size: 85px; /* Font size of the title */
+    }
+
+    p {
+        font-size: 18px; /* Font size of the paragraph */
+        padding: 2px 2px;
+        margin-top: 1%;  
+    }
+
+    .title-container {    
+        padding: 76px;
+    }
+
+    .breadcrumb {
+        background-color: none;
+        padding: 10px 20px;
+        font-size: 15px;
+        top: 340px; /* Adjust the top position */
+        left: 10px; /* Adjust the left position */
+        width: 85%; /* Make the breadcrumb span the entire width */
+        z-index: 1000; /* Set a high z-index to ensure the breadcrumb appears above other elements */
+        text-align: left
+    }
+
+    .navigation-icons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+        gap: 10px; /* Adjust the gap between icon sets */
+        justify-content: start;
+        margin-top: 10%; 
+
+    }
+
+    .icon {
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Add smooth transition effect */
+    }
+
+    .icon-container {
+        position: relative;  /*relative */
+        cursor: pointer;
+        padding: 10px;
+        margin: 10px;
+        
+    }
+
+    .icon-options {
+    position: static;
+    bottom: 5px; /* Hide options initially */
+    left: 10%;
+    transform: translateX(120px, 50%);
+    padding: 5% 0;
+    border-radius: 5px;
+    display: grid;
+    gap: 5%; /* Adjust the gap between options */
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    }
+
+    .icon-container:hover {
+        background-color: none; /* Change icon background color on hover */
+    }
+
+    .icon-container:hover .icon-options {
+        bottom: 10px; /* gap. Show options on hover */
+        opacity: 1;
+    }
+
+    .icon-options a {
+        background-color: #eff5f9fd; /* Default background color of options */
+        color: rgba(81, 83, 88, 0.973);
+        padding: 2px 3px;
+        border-radius: 3px;
+        text-decoration: none;
+        font-family: 'Trebuchet MS';
+        transition: background-color 0.3s ease;
+        font-size: 15px; /* Adjust the font size here */
+    }
+
+    .icon-options a:hover {
+        background-color: #b6d5f5; /* Change background color of options on hover */
+    }
+
+    .sub-options {
+        display: grid;  /*grid or none  */
+        position: absolute;
+        top: 77%;
+        left: 35%;
+ 
+    }
+
+    .icon-container:hover .sub-options {     /*this is IT!!!!!!!!!!!!!!!  */
+        display: block;
+    }
+    
+    .icon-options ul {
+    list-style-type: none; /* Remove bullet points */
+    right: 0;
+    padding: 100; /* Remove default padding */
+    margin: 3% 0; /* Remove default margin
+    /* Adjust the length of the options here */
+    .icon-options a {
+    min-width: 75%; /* Set a minimum width for the options */
+    }
+    }
+
+    .icon img {   
+    max-width: 200px;
+    height: auto;
+    }
+
+
+
+}
+
+
+
+
+
+
+/* Media Query for Tablets and Small Screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    body {
+        background-size: cover; /* Cover the entire viewport with the background image */
+      
+    }
+    
+    .logo {
+        position: absolute;
+        top: 25px; /* Add space on the top of the image by adjusting this value */
+        left: 25px; /* Add space on the left side of the image by adjusting this value */
+        width: 180px; /* Set the width of the image */
+        height: auto; /* Automatically adjust the height to maintain aspect ratio */
+    }
+    
+    .language-selection {
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        font-size: 15px; /* Font size of the title */
+    }
+
+    .language-selection select {
+        padding: 0;
+        font-size: 13px;
+    }
+
+    h1 {
+        margin-top: 5%;     
+        font-size: 75px; /* Font size of the title */
+    }
+
+    p {
+        font-size: 20px; /* Font size of the paragraph */
+        padding: 2px 2px;
+        margin-top: 1%;  
+    }
+
+    .title-container {    
+        padding: 76px;
+    }
+
+    .breadcrumb {
+        background-color: none;
+        padding: 10px 20px;
+        font-size: 15px;
+        top: 250px; /* Adjust the top position */
+        left: 10px; /* Adjust the left position */
+        width: 85%; /* Make the breadcrumb span the entire width */
+        z-index: 1000; /* Set a high z-index to ensure the breadcrumb appears above other elements */
+        text-align: left
+    }
+
+    .navigation-icons {
+        display: flex;
+        gap: 4%; /* Adjust the gap between icon sets */
+        justify-content: start;
+        margin-top: 10%; 
+
+    }
+
+    .icon {
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Add smooth transition effect */
+    }
+
+    .icon-container {
+        position: relative;  /*relative */
+        cursor: pointer;
+        padding: 10px;
+        margin: 10px;
+        
+    }
+
+    .icon-options {
+    position: static;
+    bottom: 5px; /* Hide options initially */
+    left: 10%;
+    transform: translateX(120px, 50%);
+    padding: 5% 0;
+    border-radius: 5px;
+    display: grid;
+    gap: 5%; /* Adjust the gap between options */
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    }
+
+    .icon-container:hover {
+        background-color: none; /* Change icon background color on hover */
+    }
+
+    .icon-container:hover .icon-options {
+        bottom: 10px; /* gap. Show options on hover */
+        opacity: 1;
+    }
+
+    .icon-options a {
+        background-color: #eff5f9fd; /* Default background color of options */
+        color: rgba(81, 83, 88, 0.973);
+        padding: 2px 3px;
+        border-radius: 3px;
+        text-decoration: none;
+        font-family: 'Trebuchet MS';
+        transition: background-color 0.3s ease;
+        font-size: 13px; /* Adjust the font size here */
+    }
+
+    .icon-options a:hover {
+        background-color: #b6d5f5; /* Change background color of options on hover */
+    }
+
+    .sub-options {
+        display: grid;  /*grid or none  */
+        position: absolute;
+        top: 70%;
+        right: 0;
+        /* Add your styles for sub-options */
+    }
+
+
+    .icon-container:hover .sub-options {     /*this is IT!!!!!!!!!!!!!!!  */
+        display: block;
+    }
+    
+    .icon-options ul {
+    list-style-type: none; /* Remove bullet points */
+    right: 0;
+    padding: 100; /* Remove default padding */
+    margin: 3% 0; /* Remove default margin
+    /* Adjust the length of the options here */
+    .icon-options a {
+    min-width: 75%; /* Set a minimum width for the options */
+    }
+    }
+
+    .icon img {   
+    max-width: 150px;
+    height: auto;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+/* Media Query for Larger Screens (Desktops) */
+@media (min-width: 1024px) {
+
+    body {
+        background-size: cover; /* Cover the entire viewport with the background image */
+      
+    }
+    
+    .logo {
+        position: absolute;
+        top: 30px; /* Add space on the top of the image by adjusting this value */
+        left: 30px; /* Add space on the left side of the image by adjusting this value */
+        width: 200px; /* Set the width of the image */
+        height: auto; /* Automatically adjust the height to maintain aspect ratio */
+    }
+
+    .language-selection {
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        font-size: 15px; /* Font size of the title */
+    }
+
+    .language-selection select {
+        padding: 0;
+        font-size: 13px;
+    }
+
+    h1 {
+        margin-top: 5%;     
+        font-size: 85px; /* Font size of the title */
+    }
+
+    p {
+        font-size: 20px; /* Font size of the paragraph */
+        padding: 2px 2px;
+        margin-top: 1%;  
+    }
+
+    .title-container {    
+        padding: 76px;
+    }
+
+    .breadcrumb {
+        background-color: none;
+        padding: 10px 20px;
+        font-size: 15px;
+        top: 310px; /* Adjust the top position */
+        left: 10px; /* Adjust the left position */
+        width: 85%; /* Make the breadcrumb span the entire width */
+        z-index: 1000; /* Set a high z-index to ensure the breadcrumb appears above other elements */
+        text-align: left
+    }
+
+    .navigation-icons {
+        display: flex;
+        gap: 4%; /* Adjust the gap between icon sets */
+        justify-content: start;
+        margin-top: 5%; 
+
+    }
+
+    .icon {
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Add smooth transition effect */
+    }
+
+    .icon-container {
+        position: relative;  /*relative */
+        cursor: pointer;
+        padding: 10px;
+        margin: 10px;
+        
+    }
+
+    .icon-options {
+        position: static;
+        bottom: 5px; /* Hide options initially */
+        left: 10%;
+        transform: translateX(120px, 50%);
+      
+        padding: 5% 0;
+        border-radius: 5px;
+        display: grid;
+        gap: 5%;
+        opacity: 0;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .icon-container:hover {
+        background-color: none; /* Change icon background color on hover */
+    }
+
+    .icon-container:hover .icon-options {
+        bottom: 10px; /* gap. Show options on hover */
+        opacity: 1;
+    }
+
+    .icon-options a {
+        background-color: #eff5f9fd; /* Default background color of options */
+        color: rgba(81, 83, 88, 0.973);
+        padding: 8px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-family: 'Trebuchet MS';
+        transition: background-color 0.3s ease;
+    }
+
+    .icon-options a:hover {
+        background-color: #b6d5f5; /* Change background color of options on hover */
+    }
+
+
+    .sub-options {
+        display: grid;  /*grid or none  */
+        position: absolute;
+        top: 80%;
+        left: 10%;
+        /* Add your styles for sub-options */
+    }
+
+    .icon-container:hover .sub-options {     /*this is IT!!!!!!!!!!!!!!!  */
+        display: block;
+    }
+
+    
+    .icon-options ul {
+    list-style-type: none; /* Remove bullet points */
+    right: 0;
+    padding: 100; /* Remove default padding */
+    margin: 3% 0; /* Remove default margin
+   
+    
+}
+
+.icon-options ul li {
+margin-bottom: 1em; /* Add margin between sub-options */
+}
+
+
+    .icon img {   
+    max-width: 250px;
+    height: auto;
+    }
+}
+
+

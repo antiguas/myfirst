@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychiatric Appointment Form</title>
+    
+</head>
+
+<style>
+
+    h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif; /* Font family of the title */
+    color: #0861c1; /* Font color of the title (hex color code) */
+    }
+
+    body {
+    text-align: center;
+    margin: 50px;     /* NO IDEA????   */ 
+    }
+
+    .logo {
+    position: absolute;
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+    }
+
+    form {
+    background-color: #f9f9f9;
+    border-radius: 10px;     /* This is the curve at the four corners of the form */
+    box-shadow: 0 0 20px rgba(1, 38, 86, 0.1);
+    text-align: start;   
+    }
+
+
+    p {
+    font-family: Georgia, serif; /* Font family of the title */
+    font-style: normal;
+    color: #372d87bd; /* Font color of the title (hex color code) */
+    /* background-color: rgba(255, 255, 255, 0.8);  */
+    padding: 10px 10px;
+    margin-top: 20;
+    padding: 10;
+    }
+
+    label {
+    display: inline-block; /* Make labels display in a block to allow for alignment */
+    width: 100px; /* Set a specific width for the labels to ensure consistent alignment */
+    text-align: left; /* Align label text to the right */
+    margin-right: 20px; /* Add some spacing between the label and input box */
+    }
+        
+
+
+
+
+/* Media Query for Mobile Devices */
+@media (min-width: 200px) and (max-width: 400px) {
+
+
+    h1 {
+    font-size: 25px; /* Font size of the title */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif; /* Font family of the title */
+    color: #0861c1; /* Font color of the title (hex color code) */
+    margin-top: 10px; /* You can adjust this value as needed */
+    }
+
+    body {
+    text-align: center;
+    margin: 80px;     /* NO IDEA????   */
+     
+}
+
+    .logo {
+    position: absolute;
+    top: 10px; /* Add space on the top of the image by adjusting this value */
+    left: 10px; /* Add space on the left side of the image by adjusting this value */
+    width: 110px; /* Set the width of the image */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+}
+
+    form {
+    max-width: 700px;   /* This is the width of the form */
+    margin: 0 auto;     /* This is the alignment of the form to the page */
+    padding: 30px;       /* This is the gap from the top of the form */
+    background-color: #f9f9f9;
+    border-radius: 10px;     /* This is the curve at the four corners of the form */
+    box-shadow: 0 0 20px rgba(1, 38, 86, 0.1);
+    text-align: start;
+    
+}
+
+
+    p {
+    font-size: 15px; /* Font size of the paragraph */
+    font-family: Georgia, serif; /* Font family of the title */
+    font-style: normal;
+    color: #372d87bd; /* Font color of the title (hex color code) */
+    /* background-color: rgba(255, 255, 255, 0.8);  */
+    padding: 10px 10px;
+    margin-top: 50;
+    padding: 50;
+    }
+
+    label {
+    display: inline-block; /* Make labels display in a block to allow for alignment */
+    width: 100px; /* Set a specific width for the labels to ensure consistent alignment */
+    text-align: left; /* Align label text to the right */
+    margin-right: 20px; /* Add some spacing between the label and input box */
+  
+}
+        
+    input[type="text"],
+    input[type="tel"],  
+    input[type="email"],
+    input[type="date"] {
+    width: 80%;
+    margin-bottom: 7%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Adjust margin and padding to control spacing */
+    }
+
+    input[type="submit"] {
+    width: 50%;     /* This is the width of each boxes */ 
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #4991f6;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 30px 50px 20px 0;
+    text-align: center;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+        .chip-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .date-chip, .time-chip {
+            margin: 5px;
+            padding: 80px 12px;
+            background-color: #54a4fa;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .time-slots {
+    display: grid;
+    grid-template-columns: repeat(4, 100px); /* Three columns with 100px width each */
+    grid-gap: 10px; /* Gap between columns and rows */
+}
+
+/* time slot chips */
+.time-slot-chip {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 7px;
+    background-color: #77aaf7;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0s ease;
+    margin-right: 10px; /* Add right margin */
+    margin-bottom: 8%;
+}
+
+
+.selected {
+    background-color: #70d678;}
+
+.time-slot-chip:hover {
+    background-color: #2980b9; /* Change the hover color to your preference */
+}
+
+.time-slot {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background-color: #576975;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: left;
+    
+}
+   
+.missing-field {
+    border-color: red;
+}
+
+.asterisk_required_field::after {
+        content: ' *';
+        color: red;
+        position: absolute;
+        margin: 2px 0px 0px -18px;
+        font-size: 20px;
+        padding: 0 5px 0 0;
+      }
+
+}
+
+
+
+
+/* Media Query for Mobile Devices */
+@media (min-width: 400px) and (max-width: 767px) {
+
+
+    h1 {
+    font-size: 40px; /* Font size of the title */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif; /* Font family of the title */
+    color: #0861c1; /* Font color of the title (hex color code) */
+    margin-top: 5;   
+    }
+
+    body {
+    text-align: center;
+    margin: 90px;     /* NO IDEA????   */
+     
+}
+
+.logo {
+    position: absolute;
+    top: 20px; /* Add space on the top of the image by adjusting this value */
+    left: 20px; /* Add space on the left side of the image by adjusting this value */
+    width: 150px; /* Set the width of the image */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+}
+
+form {
+    max-width: 550px;   /* This is the width of the form */
+    margin: 0 auto;     /* This is the alignment of the form to the page */
+    padding: 30px;       /* This is the gap from the top of the form */
+    background-color: #f9f9f9;
+    border-radius: 10px;     /* This is the curve at the four corners of the form */
+    box-shadow: 0 0 20px rgba(1, 38, 86, 0.1);
+    text-align: start;
+    
+}
+
+
+p {
+            font-size: 15px; /* Font size of the paragraph */
+            font-family: Georgia, serif; /* Font family of the title */
+            font-style: normal;
+            color: #372d87bd; /* Font color of the title (hex color code) */
+            /* background-color: rgba(255, 255, 255, 0.8);  */
+            padding: 10px 10px;
+            margin-top: 20;
+            padding: 10;
+ 
+        }
+
+label {
+  display: inline-block; /* Make labels display in a block to allow for alignment */
+  width: 100px; /* Set a specific width for the labels to ensure consistent alignment */
+  text-align: left; /* Align label text to the right */
+  margin-right: 20px; /* Add some spacing between the label and input box */
+  
+}
+        
+input[type="text"],
+input[type="tel"],  
+input[type="email"],
+input[type="date"] {
+    width: 50%;
+    margin-bottom: 2%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Adjust margin and padding to control spacing */
+  
+}
+
+input[type="submit"] {
+    width: 20%;     /* This is the width of each boxes */ 
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #4991f6;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 30px 50px 20px 0;
+    text-align: center;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+        .chip-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .date-chip, .time-chip {
+            margin: 5px;
+            padding: 80px 12px;
+            background-color: #54a4fa;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .time-slots {
+    display: grid;
+    grid-template-columns: repeat(4, 100px); /* Three columns with 100px width each */
+    grid-gap: 10px; /* Gap between columns and rows */
+}
+
+/* time slot chips */
+.time-slot-chip {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 7px;
+    background-color: #77aaf7;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0s ease;
+    margin-right: 10px; /* Add right margin */
+    margin-bottom: 8%;
+}
+
+
+.selected {
+    background-color: #70d678;}
+
+.time-slot-chip:hover {
+    background-color: #2980b9; /* Change the hover color to your preference */
+}
+
+.time-slot {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background-color: #576975;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: left;
+    
+}
+   
+.missing-field {
+    border-color: red;
+}
+
+.asterisk_required_field::after {
+        content: ' *';
+        color: red;
+        position: absolute;
+        margin: 2px 0px 0px -18px;
+        font-size: 20px;
+        padding: 0 5px 0 0;
+      }
+
+}
+
+
+/* Media Query for Tablets and Small Screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+
+h1 {
+            font-size: 40px; /* Font size of the title */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif; /* Font family of the title */
+            color: #0861c1; /* Font color of the title (hex color code) */
+            margin-top: 5;
+            
+        }
+
+body {
+    text-align: center;
+    margin: 100px;     /* NO IDEA????   */
+     
+}
+
+.logo {
+    position: absolute;
+    top: 20px; /* Add space on the top of the image by adjusting this value */
+    left: 20px; /* Add space on the left side of the image by adjusting this value */
+    width: 150px; /* Set the width of the image */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+}
+
+form {
+    max-width: 550px;   /* This is the width of the form */
+    margin: 0 auto;     /* This is the alignment of the form to the page */
+    padding: 30px;       /* This is the gap from the top of the form */
+    background-color: #f9f9f9;
+    border-radius: 10px;     /* This is the curve at the four corners of the form */
+    box-shadow: 0 0 20px rgba(1, 38, 86, 0.1);
+    text-align: start;
+    
+}
+
+
+p {
+            font-size: 15px; /* Font size of the paragraph */
+            font-family: Georgia, serif; /* Font family of the title */
+            font-style: normal;
+            color: #372d87bd; /* Font color of the title (hex color code) */
+            /* background-color: rgba(255, 255, 255, 0.8);  */
+            padding: 10px 10px;
+            margin-top: 20;
+            padding: 10;
+ 
+        }
+
+label {
+  display: inline-block; /* Make labels display in a block to allow for alignment */
+  width: 100px; /* Set a specific width for the labels to ensure consistent alignment */
+  text-align: left; /* Align label text to the right */
+  margin-right: 20px; /* Add some spacing between the label and input box */
+  
+}
+        
+input[type="text"],
+input[type="tel"],  
+input[type="email"],
+input[type="date"] {
+    width: 50%;
+    margin-bottom: 2%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Adjust margin and padding to control spacing */
+  
+}
+
+input[type="submit"] {
+    width: 20%;     /* This is the width of each boxes */ 
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #4991f6;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 30px 50px 20px 0;
+    text-align: center;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+        .chip-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .date-chip, .time-chip {
+            margin: 5px;
+            padding: 80px 12px;
+            background-color: #54a4fa;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .time-slots {
+    display: grid;
+    grid-template-columns: repeat(4, 100px); /* Three columns with 100px width each */
+    grid-gap: 10px; /* Gap between columns and rows */
+}
+
+/* time slot chips */
+.time-slot-chip {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 7px;
+    background-color: #77aaf7;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0s ease;
+    margin-right: 10px; /* Add right margin */
+    margin-bottom: 8%;
+}
+
+
+.selected {
+    background-color: #70d678;}
+
+.time-slot-chip:hover {
+    background-color: #2980b9; /* Change the hover color to your preference */
+}
+
+.time-slot {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background-color: #576975;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: left;
+    
+}
+   
+.missing-field {
+    border-color: red;
+}
+
+.asterisk_required_field::after {
+        content: ' *';
+        color: red;
+        position: absolute;
+        margin: 2px 0px 0px -18px;
+        font-size: 20px;
+        padding: 0 5px 0 0;
+      }
+
+
+}
+
+
+
+/* Media Query for Larger Screens (Desktops) */
+@media (min-width: 1024px) {
+
+h1 {
+            font-size: 40px; /* Font size of the title */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif; /* Font family of the title */
+            color: #0861c1; /* Font color of the title (hex color code) */
+            margin-top: 5;
+            
+        }
+
+body {
+    text-align: center;
+    margin: 100px;     /* NO IDEA????   */
+     
+}
+
+.logo {
+    position: absolute;
+    top: 20px; /* Add space on the top of the image by adjusting this value */
+    left: 20px; /* Add space on the left side of the image by adjusting this value */
+    width: 150px; /* Set the width of the image */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+}
+
+form {
+    max-width: 550px;   /* This is the width of the form */
+    margin: 0 auto;     /* This is the alignment of the form to the page */
+    padding: 30px;       /* This is the gap from the top of the form */
+    background-color: #f9f9f9;
+    border-radius: 10px;     /* This is the curve at the four corners of the form */
+    box-shadow: 0 0 20px rgba(1, 38, 86, 0.1);
+    text-align: start;
+    
+}
+
+
+p {
+            font-size: 15px; /* Font size of the paragraph */
+            font-family: Georgia, serif; /* Font family of the title */
+            font-style: normal;
+            color: #372d87bd; /* Font color of the title (hex color code) */
+            /* background-color: rgba(255, 255, 255, 0.8);  */
+            padding: 10px 10px;
+            margin-top: 20;
+            padding: 10;
+ 
+        }
+
+label {
+  display: inline-block; /* Make labels display in a block to allow for alignment */
+  width: 100px; /* Set a specific width for the labels to ensure consistent alignment */
+  text-align: left; /* Align label text to the right */
+  margin-right: 20px; /* Add some spacing between the label and input box */
+  
+}
+        
+input[type="text"],
+input[type="tel"],  
+input[type="email"],
+input[type="date"] {
+    width: 50%;
+    margin-bottom: 2%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Adjust margin and padding to control spacing */
+  
+}
+
+input[type="submit"] {
+    width: 20%;     /* This is the width of each boxes */ 
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #4991f6;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 30px 50px 20px 0;
+    text-align: center;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+        .chip-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .date-chip, .time-chip {
+            margin: 5px;
+            padding: 80px 12px;
+            background-color: #54a4fa;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .time-slots {
+    display: grid;
+    grid-template-columns: repeat(4, 100px); /* Three columns with 100px width each */
+    grid-gap: 10px; /* Gap between columns and rows */
+}
+
+/* time slot chips */
+.time-slot-chip {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 7px;
+    background-color: #77aaf7;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0s ease;
+    margin-right: 10px; /* Add right margin */
+    margin-bottom: 8%;
+}
+
+
+.selected {
+    background-color: #70d678;}
+
+.time-slot-chip:hover {
+    background-color: #2980b9; /* Change the hover color to your preference */
+}
+
+.time-slot {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background-color: #576975;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: left;
+    
+}
+   
+.missing-field {
+    border-color: red;
+}
+
+.asterisk_required_field::after {
+        content: ' *';
+        color: red;
+        position: absolute;
+        margin: 2px 0px 0px -18px;
+        font-size: 20px;
+        padding: 0 5px 0 0;
+      }
+
+
+}
+
+
+
+</style>
+
+
+
+<body>
+
+    <div class="title-container">
+        <h1>Psychiatric Online Appointment Form</h1>
+    </div>
+
+    <p>Please fill in the details below in order to create your booking appointment.
+
+    </p>
+
+    <form action="/userdata.txt" method="post">
+
+        <img src="file:///C:/Users/Sharmaine/Desktop/BIA/3.23F_Sec31/5.Fri_Web%20&%20Mobile%20Syst%20Programming/Assignment/Assign2/Final/Pics/logo.svg" alt="Logo" class="logo">
+        
+        <div class="name-section">
+            <div class="name-input">
+                <label for="first-name">First Name:</label>
+                <span class="asterisk_required_field"></span>
+                <input type="text" id="first-name" name="first-name"placeholder="Ex: Ana" required>
+              
+                
+            </div>
+
+            <div class="name-input">
+                <label for="last-name">Last Name:</label>
+                <span class="asterisk_required_field"></span>
+                <input type="text" id="last-name" name="last-name"placeholder="Ex: Wright" required>
+             
+                
+            </div>
+
+        </div>
+
+
+        <label for="phone-number">Contact Num:</label>
+        <span class="asterisk_required_field"></span>
+        <input type="tel" id="phone-number" name="phone-number" placeholder="Ex: 123-456-7890" required><br>
+        
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"  placeholder="Ex: abc@gmail.com"><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address"><br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city"><br>
+
+        <label for="province">Province:</label>
+        <input type="text" id="province" name="province"><br>
+
+        <label for="postal-code">Postal Code:</label>
+        <input type="text" id="postal-code" name="postal-code"><br>
+
+        <p>Please select two schedule that works for you</p>
+
+        <label for="date1">Date 1:</label>
+        <input type="date" id="date1" required><br>
+    
+        <label>Time Slot 1:</label>
+        <div id="time-slots-container-1"></div>
+    
+        <label for="date2">Date 2:</label>
+        <input type="date" id="date2" required><br>
+    
+        <label>Time Slot 2:</label>
+        <div id="time-slots-container-2"></div>
+    
+        <button id="add-button">Add Dates and Times</button>
+        <div id="selected-slots"></div> <!-- This div will display the selected dates and times -->
+    
+        <form action="file:///C:/Users/Sharmaine/Desktop/BIA/3.23F_Sec31/5.Fri_Web%20&%20Mobile%20Syst%20Programming/Assignment/Assign2/Final/userdata.txt" method="post">
+            <!-- Your form fields here -->
+            <input type="submit" value="Submit">
+        </form>
+
+        <script src="script.js"></script>
+
+    </form>
+
+
+</body>
+
+
+
+
+<script>
+
+  // Time slots data (you can fetch this dynamically from an API)
+const timeSlotsData = ["9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "02:00 PM"];
+
+let selectedChip1 = null;
+let selectedChip2 = null;
+
+// Function to create time slot chips
+function createTimeSlotChips(containerId) {
+    const container = document.getElementById(containerId);
+    timeSlotsData.forEach(slot => {
+        const chip = document.createElement('div');
+        chip.textContent = slot;
+        chip.className = 'time-slot-chip';
+        chip.addEventListener('click', function () {
+            // Remove 'selected' class from the previously clicked chip
+            if (containerId === 'time-slots-container-1' && selectedChip1) {
+                selectedChip1.classList.remove('selected');
+            } else if (containerId === 'time-slots-container-2' && selectedChip2) {
+                selectedChip2.classList.remove('selected');
+            }
+            // Add 'selected' class to the clicked chip
+            chip.classList.add('selected');
+            // Update the selectedChip variable
+            if (containerId === 'time-slots-container-1') {
+                selectedChip1 = chip;
+            } else if (containerId === 'time-slots-container-2') {
+                selectedChip2 = chip;
+            }
+        });
+        container.appendChild(chip);
+    });
+}
+
+// Function to handle Add Dates and Times button click
+function handleAddButtonClick() {
+    const date1 = document.getElementById('date1');
+    const date2 = document.getElementById('date2');
+    
+    if (!date1.value) {
+        date1.classList.add('missing-field');
+    } else {
+        date1.classList.remove('missing-field');
+    }
+
+    if (!date2.value) {
+        date2.classList.add('missing-field');
+    } else {
+        date2.classList.remove('missing-field');
+    }
+
+    if (!selectedChip1 || !selectedChip2) {
+        alert("Please select both time slots.");
+        return;
+    }
+
+    if (!date1.value || !date2.value) {
+        alert("Please fill out both date fields.");
+        return;
+    }
+    
+    const time1 = selectedChip1.textContent;
+    const time2 = selectedChip2.textContent;
+    const selectedSlotsDisplay = document.getElementById('selected-slots');
+    selectedSlotsDisplay.innerHTML = `
+        <strong>Preferred Schedule 1:</strong> <br>
+        Date: ${date1.value}, Time: ${time1} <br><br>
+        <strong>Preferred Schedule 2:</strong> <br>
+        Date: ${date2.value}, Time: ${time2}
+    `;
+}
+
+// Call the function to create time slot chips for both containers when the page loads
+window.onload = function() {
+    createTimeSlotChips('time-slots-container-1');
+    createTimeSlotChips('time-slots-container-2');
+    const addButton = document.getElementById('add-button');
+    addButton.addEventListener('click', handleAddButtonClick);
+};
+
+
+        document.getElementById('appointmentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var date1 = document.getElementById('date1').value;
+            var time1 = selectedChip1 ? selectedChip1.textContent : null;
+            var date2 = document.getElementById('date2').value;
+            var time2 = selectedChip2 ? selectedChip2.textContent : null;
+
+            // Assuming you have a function to check if the email exists in the file
+            var emailExists = checkEmailExists(email);
+
+            if (emailExists) {
+                alert('Email already exists. Please enter a new email address.');
+                return;
+            }
+
+            // Assuming you have a function to check if the date and time exist in the file
+            var dateTime1Exists = checkDateTimeExists(date1, time1);
+            var dateTime2Exists = checkDateTimeExists(date2, time2);
+
+            if (dateTime1Exists || dateTime2Exists) {
+                alert('One of the selected date and time slots is already taken. Please choose a different date or time.');
+                return;
+            }
+
+            // If email, date, and time are not in the file, proceed to save the data to the file.
+            // Assuming you have a function to save data to the file
+            saveDataToFile(email, date1, time1);
+            saveDataToFile(email, date2, time2);
+
+            // For the sake of this example, show a success message
+            alert('Appointment booked successfully!');
+            // You can redirect the user to another page or perform other actions here.
+        });
+
+        // Function to check if email exists in the file
+        function checkEmailExists(email) {
+            // Implement logic to check if the email exists in the userdata.txt file
+            // Return true if the email exists, false otherwise
+            // Example code:
+            // You might use AJAX to asynchronously check if the email exists on the server
+            // For this example, always return false
+            return false;
+        }
+
+        // Function to check if date and time exist in the file
+        function checkDateTimeExists(date, time) {
+            // Implement logic to check if the date and time exist in the userdata.txt file
+            // Return true if the date and time exist, false otherwise
+            // Example code:
+            // You might use AJAX to asynchronously check if the date and time exist on the server
+            // For this example, always return false
+            return false;
+        }
+
+        // Function to save data to the file
+        function saveDataToFile(email, date, time) {
+            // Implement logic to save the data to the userdata.txt file
+            // Example code:
+            // You might use AJAX to asynchronously save the data on the server
+            // For this example, log the data to the console
+            console.log('Email: ' + email + ', Date: ' + date + ', Time: ' + time);
+        }
+        
+        console.log(process.cwd());
+
+
+        const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/file:///C:/Users/Sharmaine/Desktop/BIA/3.23F_Sec31/5.Fri_Web%20&%20Mobile%20Syst%20Programming/Assignment/Assign2/Final/userdata.txt', (req, res) => {
+    const userData = `${req.body.firstName} ${req.body.lastName}, ${req.body.phoneNumber}, ${req.body.email}, ${req.body.address}, ${req.body.city}, ${req.body.province}, ${req.body.postalCode}, ${req.body.date1}, ${req.body.time1}, ${req.body.date2}, ${req.body.time2}\n`;
+
+    // Append the form data to userdata.txt file
+    fs.appendFile('file:///C:/Users/Sharmaine/Desktop/BIA/3.23F_Sec31/5.Fri_Web%20&%20Mobile%20Syst%20Programming/Assignment/Assign2/Final/userdata.txt', userData, (err) => {
+        if (err) throw err;
+        console.log('Data has been written to the file');
+    });
+
+    // You can send a response back to the client if needed
+    res.send('Form data has been submitted successfully.');
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
+
+
+
+   </script>
+
+</html>
